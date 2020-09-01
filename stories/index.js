@@ -9,6 +9,9 @@ import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
+import InterviewerList from "components/InterviewerList";
+
+// Button
 
 storiesOf("Button", module)
   .addParameters({
@@ -27,6 +30,8 @@ storiesOf("Button", module)
   ));
 
 
+  //DayListItem
+
   storiesOf("DayListItem", module) //Initiates Storybook and registers our DayListItem component
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -38,6 +43,8 @@ storiesOf("Button", module)
     <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> // action() allows us to create a callback that appears in the actions panel when clicked
   ));
 
+
+  //DayList
   
   storiesOf("DayList", module)
     .addParameters({
@@ -51,7 +58,7 @@ storiesOf("Button", module)
     ));
 
 
-
+      // InterviewerListItem
 
     const interviewer = {
       id: 1,
@@ -87,3 +94,32 @@ storiesOf("Button", module)
       setInterviewer={action("setInterviewer")}
     />
   ));
+
+
+  // InterviewerList
+
+  const interviewers = [
+    { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
+    { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
+    { id: 3, name: "Mildred Nazir", avatar: "https://i.imgur.com/T2WwVfS.png" },
+    { id: 4, name: "Cohana Roy", avatar: "https://i.imgur.com/FK8V841.jpg" },
+    { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" }
+  ];
+  
+  storiesOf("InterviewerList", module)
+    .addParameters({
+      backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+    })
+    .add("Initial", () => (
+      <InterviewerList
+        interviewers={interviewers}
+        setInterviewer={action("setInterviewer")}
+      />
+    ))
+    .add("Preselected", () => (
+      <InterviewerList
+        interviewers={interviewers}
+        interviewer={3}
+        setInterviewer={event => action("setInterviewer")(interviewer.id)}
+      />
+    ));
