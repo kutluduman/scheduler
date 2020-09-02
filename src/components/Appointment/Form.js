@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 
 import Button from  "../Button";
 import InterviewerList from "../InterviewerList";
 
 export default function Form(props) {
+  const [name,setName] = useState(props.name || "");
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
@@ -18,8 +19,8 @@ export default function Form(props) {
         </form>
         <InterviewerList
           interviewers={props.interviewers}
-          value={props.interviewer}
-          // onChange={setInterviewer}
+          value={name}
+           onChange={event => setName(event.target.value)};
         />
       </section>
       <section className="appointment__card-right">
