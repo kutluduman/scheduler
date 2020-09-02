@@ -29,6 +29,7 @@ export default function Application(props) {
     })
   }, []);
   
+  const appointmentsForDay = getAppointmentsForDay(state, state.day);
   
   return (
     <main className="layout">
