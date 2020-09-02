@@ -76,7 +76,6 @@ export default function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
         <img
           className="sidebar--centered"
           src="images/logo.png"
@@ -97,7 +96,13 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+        {appointments.map(appointment => (
+          <Appointment
+          key={appointment.id}
+          {...appointment}
+          />
+        ))}
+        <Appointment id="last" time="5pm" />
       </section>
     </main>
   );
