@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header"
-import Show from "./Show"
-import Empty from "./Empty"
-import Form from "./Form"
+import Header from "./Header";
+import Show from "./Show";
+import Empty from "./Empty";
+import Form from "./Form";
 import Status from "./Status";
 import Confirm from "./Confirm";
 import Error from "./Error";
@@ -10,7 +10,7 @@ import Error from "./Error";
 
 
 import useVisualMode from "hooks/useVisualMode";
-import "./styles.scss"
+
 
 
 const EMPTY = "EMPTY";
