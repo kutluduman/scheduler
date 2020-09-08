@@ -24,7 +24,7 @@ describe("Application", () => {
     const appointment = appointments[0];
 
       // Booking an interview 
-
+`
     fireEvent.click(getByAltText(appointment, "Add"));
 
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
