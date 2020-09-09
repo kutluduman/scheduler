@@ -5,36 +5,42 @@ import "components/Application.scss";
 
 import axios from "axios";
 
-import Appointment from "components/Appointment"
+import Appointment from "components/Appointment";
 import DayList from "components/DayList";
 
-import {getAppointmentsForDay, getInterviewersForDay, getInterview} from "helpers/selectors"
-
+import {
+  getAppointmentsForDay,
+  getInterviewersForDay,
+  getInterview,
+} from "helpers/selectors";
 
 export default function Application(props) {
-  
-  const { state, setDay, bookInterview, cancelInterview } = useApplicationData()
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview,
+  } = useApplicationData();
 
   const appointmentsForDay = getAppointmentsForDay(state, state.day);
 
   const interviewersForDay = getInterviewersForDay(state, state.day);
 
-  const schedule = appointmentsForDay.map(appointment => {
-  const interview = getInterview(state, appointment.interview);
+  const schedule = appointmentsForDay.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
 
     return (
       <Appointment
         key={appointment.id}
         {...appointment}
-        interview = {interview}
+        interview={interview}
         interviewers={interviewersForDay}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
       />
-    )
-  })
+    );
+  });
 
-  
   return (
     <main className="layout">
       <section className="sidebar">
@@ -45,11 +51,7 @@ export default function Application(props) {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList
-            days={state.days}
-            day={state.day}
-            setDay={setDay}
-          />
+          <DayList days={state.days} day={state.day} setDay={setDay} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
@@ -64,4 +66,3 @@ export default function Application(props) {
     </main>
   );
 }
-
