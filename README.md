@@ -64,6 +64,6 @@ Single-page application built with React including hooks and functional componen
 - React
 
 ## Screenshots
-!["input-name"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot1.png?raw=true)
-!["after-schedule"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot2.png?raw=true)
-!["delete"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot3.png?raw=true)
+!["input-name"](https://github.com/kutluduman/scheduler/blob/master/docs/input-name.png?raw=true)
+!["after-schedule"](https://github.com/kutluduman/scheduler/blob/master/docs/after-schedule.png?raw=true)
+!["delete"](https://github.com/kutluduman/scheduler/blob/master/docs/delete.png?raw=true)
