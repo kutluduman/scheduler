@@ -20,9 +20,16 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment(props) {
+  // custom hook to handle the visual modes of <Appointment> component
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
+  /*
+    this function is passed as prop into the form
+    component and handles the visual mode to book
+    interview
+  */
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -35,6 +42,12 @@ export default function Appointment(props) {
       .catch(() => transition(ERROR_SAVE, true));
   }
 
+
+  /*
+    This function is passed as prop into the confirm
+    component, handles the visual mode and uses the function
+    to cancel an interview
+  */
   function destroy() {
     transition(DELETE, true);
 
@@ -44,6 +57,7 @@ export default function Appointment(props) {
       .catch(() => transition(ERROR_DELETE, true));
   }
 
+  // renders the component according to the current visual mode
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />

@@ -6,24 +6,25 @@ const SET_DAYS = "SET_DAYS";
 const SET_APP_DATA = "SET_APP_DATA";
 const SET_INTERVIEW = "SET_INTERVIEW";
 
+// handles the state
 function reducer(state, action) {
   const reducers = {
-    [SET_DAY]: function (state, value) {
+    [SET_DAY]: function(state, value) {
       return { ...state, ...value };
     },
 
-    [SET_APP_DATA]: function (state, value) {
+    [SET_APP_DATA]: function(state, value) {
       return { ...state, ...value };
     },
 
-    [SET_DAYS]: function (state, value) {
+    [SET_DAYS]: function(state, value) {
       return { ...state, days: value };
     },
 
-    [SET_INTERVIEW]: function (state, value) {
+    [SET_INTERVIEW]: function(state, value) {
       const appointment = {
         ...state.appointments[value.id],
-        interview: { ...value.interview },
+        interview: { ...value.interview }
       };
       const appointments = {
         ...state.appointments,
@@ -41,7 +42,7 @@ export default function useApplicationData() {
     day: "Monday",
     days: [],
     appointments: {},
-    interviewers: {},
+    interviewers: {}
   });
 
   const setDay = (day) => dispatch({ type: SET_DAY, value: { day } });
@@ -57,7 +58,7 @@ export default function useApplicationData() {
         value: {
           days: all[0].data,
           appointments: all[1].data,
-          interviewers: all[2].data,
+          interviewers: all[2].data
         },
       })
     );
@@ -66,13 +67,14 @@ export default function useApplicationData() {
   useEffect(() => {
     axios
       .get("/api/days")
-      .then((days) => dispatch({ type: SET_DAYS, value: days.data }));
+      .then(days => dispatch({ type: SET_DAYS, value: days.data }));
   }, [state.appointments]);
 
+   // books or updates an interview, also db and state is updated
   function bookInterview(id, interview) {
     return axios
       .put(`/api/appointments/${id}`, { interview })
-      .then((response) =>
+      .then(response =>
         dispatch({ type: SET_INTERVIEW, value: { id, interview } })
       );
   }
@@ -80,7 +82,7 @@ export default function useApplicationData() {
   function cancelInterview(id) {
     return axios
       .delete(`/api/appointments/${id}`)
-      .then((response) =>
+      .then(response =>
         dispatch({ type: SET_INTERVIEW, value: { id, interview: null } })
       );
   }
@@ -89,6 +91,6 @@ export default function useApplicationData() {
     state,
     setDay,
     bookInterview,
-    cancelInterview,
+    cancelInterview
   };
 }

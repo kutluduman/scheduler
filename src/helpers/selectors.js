@@ -1,5 +1,10 @@
+/*
+  returns array of appointment objects for the current
+  selected day which will be used in Application.js
+  file
+*/
 export const getAppointmentsForDay = (state, day) => {
-  const dayObj = state.days.find((elem) => elem.name === day);
+  const dayObj = state.days.find(elem => elem.name === day);
 
   if (!dayObj) {
     return [];
@@ -18,8 +23,13 @@ export const getAppointmentsForDay = (state, day) => {
   return appointmentsForDay;
 };
 
+/*
+  returns array of interviewer objects for the current
+  selected day which will be used in Application.js
+  file
+*/
 export const getInterviewersForDay = (state, day) => {
-  const dayObj = state.days.find((elem) => elem.name === day);
+  const dayObj = state.days.find(elem => elem.name === day);
 
   if (!dayObj) {
     return [];
@@ -38,6 +48,11 @@ export const getInterviewersForDay = (state, day) => {
   return interviewersForDay;
 };
 
+/*
+  returns array of interview objects for the current
+  selected day which will be used in Application.js
+  file
+*/
 export const getInterview = (state, interview) => {
   if (!interview) {
     return null;
@@ -49,7 +64,7 @@ export const getInterview = (state, interview) => {
     if (Number(id) === interviewerId) {
       return {
         student: interview.student,
-        interviewer: state.interviewers[id],
+        interviewer: state.interviewers[id]
       };
     }
   }
