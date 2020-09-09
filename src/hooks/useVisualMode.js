@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-
 // custom hook to handle the visual modes of appointment component
+
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
@@ -14,7 +14,7 @@ export default function useVisualMode(initial) {
   const transition = (newMode, replace = false) => {
     setMode(newMode);
 
-    setHistory((history) => {
+    setHistory(history => {
       if (replace) {
         const newHistory = [...history];
         newHistory.splice(-1, 1, newMode);
@@ -31,15 +31,17 @@ export default function useVisualMode(initial) {
     the history
   */
   const back = () => {
-    setHistory((history) => {
+    setHistory(history => {
       const newHistory =
         history.length > 1 ? [...history].slice(0, -1) : [...history];
+
       setMode(newHistory[newHistory.length - 1]);
+
       return newHistory;
     });
   };
 
-  // returns functions and state that will be used in Appointment/index.js
+   // returns functions and state that will be used in Appointment/index.js
   return {
     mode,
     transition,

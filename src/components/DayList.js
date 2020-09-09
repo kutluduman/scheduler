@@ -1,9 +1,10 @@
 import React from "react";
+
 import DayListItem from "components/DayListItem";
 
 export default function DayList(props) {
 
-   // build an array of day list items and render
+  // build an array of day list items and render
   return (
     <ul>
       {props.days.map(day => (

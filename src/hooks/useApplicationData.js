@@ -1,6 +1,7 @@
 import { useReducer, useEffect } from "react";
 import axios from "axios";
 
+
 const SET_DAY = "SET_DAY";
 const SET_DAYS = "SET_DAYS";
 const SET_APP_DATA = "SET_APP_DATA";
@@ -28,16 +29,17 @@ function reducer(state, action) {
       };
       const appointments = {
         ...state.appointments,
-        [value.id]: appointment,
+        [value.id]: appointment
       };
       return { ...state, appointments };
-    },
+    }
   };
 
   return reducers[action.type](state, action.value) || state;
 }
 
 export default function useApplicationData() {
+
   const [state, dispatch] = useReducer(reducer, {
     day: "Monday",
     days: [],
@@ -45,32 +47,34 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
-  const setDay = (day) => dispatch({ type: SET_DAY, value: { day } });
+  const setDay = day => dispatch({ type: SET_DAY, value: { day } });
+
 
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
       axios.get("/api/appointments"),
-      axios.get("/api/interviewers"),
-    ]).then((all) =>
+      axios.get("/api/interviewers")
+    ]).then(all =>
       dispatch({
         type: SET_APP_DATA,
         value: {
           days: all[0].data,
           appointments: all[1].data,
           interviewers: all[2].data
-        },
+        }
       })
     );
   }, []);
 
+  // updates remaining spots in days after an interview is set
   useEffect(() => {
     axios
       .get("/api/days")
       .then(days => dispatch({ type: SET_DAYS, value: days.data }));
   }, [state.appointments]);
 
-   // books or updates an interview, also db and state is updated
+  // books or updates an interview
   function bookInterview(id, interview) {
     return axios
       .put(`/api/appointments/${id}`, { interview })
@@ -79,6 +83,7 @@ export default function useApplicationData() {
       );
   }
 
+  // cancels an interview
   function cancelInterview(id) {
     return axios
       .delete(`/api/appointments/${id}`)
@@ -86,7 +91,7 @@ export default function useApplicationData() {
         dispatch({ type: SET_INTERVIEW, value: { id, interview: null } })
       );
   }
-
+  
   return {
     state,
     setDay,

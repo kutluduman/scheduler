@@ -23,6 +23,7 @@ export const getAppointmentsForDay = (state, day) => {
   return appointmentsForDay;
 };
 
+
 /*
   returns array of interviewer objects for the current
   selected day which will be used in Application.js
