@@ -64,12 +64,6 @@ Single-page application built with React including hooks and functional componen
 - React
 
 ## Screenshots
-!["Main page"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot1.png?raw=true)
-!["Sign Up"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot2.png?raw=true)
-!["Log in"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot3.png?raw=true)
-!["Menu"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot11.png?raw=true)
-!["Options menu"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot6.png?raw=true)
-!["Order purchase"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot7.png?raw=true)
-!["Contact"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot8.png?raw=true)
-!["Admin"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot9.png?raw=true)
-!["Admin Update"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot10.png?raw=true)
+!["input-name"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot1.png?raw=true)
+!["after-schedule"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot2.png?raw=true)
+!["delete"](https://github.com/kutluduman/midterm_coffee_pickup/blob/master/public/images/screenshots/screenshot3.png?raw=true)
